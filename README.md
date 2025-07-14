@@ -152,38 +152,7 @@ outputs_with_cite = llm.generate([prompt], sampling_params_with_cite)
 3. **Logits 조정**: 해당 토큰들의 logits에 boost_factor를 더함
 4. **확률 증가**: 인용 텍스트의 토큰들이 선택될 확률이 증가
 
-## 주의사항
 
-1. **GPU 메모리**: 큰 모델은 충분한 GPU 메모리가 필요합니다
-2. **모델 호환성**: Transformers 라이브러리를 사용하는 모델과 호환됩니다
-3. **부스트 강도**: 너무 높은 boost_factor는 과도한 반복을 일으킬 수 있습니다
-
-## 문제 해결
-
-### 일반적인 오류
-
-1. **GPU 메모리 부족**
-   ```python
-   # gpu_memory_utilization 값을 줄이세요
-   llm = LLM(model="...", gpu_memory_utilization=0.5)
-   ```
-
-2. **모델 로드 실패**
-   ```python
-   # 더 작은 모델을 사용하세요
-   model_name = "microsoft/DialoGPT-small"
-   ```
-
-3. **CUDA 오류**
-   ```bash
-   # CUDA 설치 확인
-   nvidia-smi
-   python -c "import torch; print(torch.cuda.is_available())"
-   ```
-
-## 라이선스
-
-이 프로젝트는 MIT 라이선스 하에 배포됩니다.
 
 ## 기여
 
